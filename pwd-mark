@@ -1,0 +1,57 @@
+#!/bin/bash
+
+SH_PATH=$(dirname $0)
+
+export OUTPUT=$SH_PATH/working_directories.csv
+touch $OUTPUT
+
+remove="FALSE"
+
+if [ $1 ]; then
+    work_name=$1
+else
+    work_name="None"
+fi
+
+show_help(){
+    echo "Usage: pwd-mark [OPTION] [WORK_NAME]"
+    echo -e "Mark and store pwd for evaluate virtual folder system.\n"
+    echo "Options:"
+    echo "  -r : Remove"
+    exit 0
+}
+
+while getopts "rh-:" OPT
+do
+    case $OPT in
+    -)
+        case "${OPTARG}" in
+	    help)
+		show_help
+		;;
+        esac
+        ;;
+    r) remove="TRUE"
+       ;;
+    h) show_help
+       ;;
+    ?) echo "It contains invalid option."
+    echo "Try 'pwd-mark -h' or pwd-mark --help' for more information."
+    exit 0
+       ;;
+    esac
+done
+
+escaped_pwd=$(echo $PWD | sed -e 's/\//\\\//g')
+if [ "$remove" = "TRUE" ]; then
+    sed -i -e "/$escaped_pwd,.*/d" $OUTPUT
+    echo "Removed "$PWD
+else
+    if grep -q "$PWD,.*" $OUTPUT; then
+	sed -i -e "s/$escaped_pwd,.*/$escaped_pwd,$work_name/g" $OUTPUT
+	echo "Updated "$PWD
+    else
+	echo $PWD,$work_name >> $OUTPUT
+	echo "Added "$PWD
+    fi
+fi
