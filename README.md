@@ -1,6 +1,6 @@
 # WD記録スクリプト
 + 評価のための正解データ作成支援スクリプト．
-+ 正解データは以下のような形式で `working_directories.csv` に記録．
++ 正解データは以下のような形式で `data/wdYYYYMMDD.csv` に記録．
 
 ```
 /home/ryota/Documents/meeting/280,TeX文書作成
@@ -22,7 +22,7 @@ $ export PATH=$PATH:$PWD
 
 `$ todays-dir ACCESS_LOG_PATH`
 
-+ 適宜エディタ等で開いてワーキングディレクトリのみを抽出し，`working_directories.csv` に記録．
++ 適宜エディタ等で開いてワーキングディレクトリのみを抽出し，`data/wdYYYYMMDD.csv` に記録．
 
 ## カレントディレクトリを記録
 + 記録したいディレクトリで以下のコマンドを実行

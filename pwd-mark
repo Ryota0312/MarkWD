@@ -2,7 +2,7 @@
 
 SH_PATH=$(dirname $0)
 
-export OUTPUT=$SH_PATH/working_directories.csv
+export OUTPUT=$SH_PATH/data/wd`date "+%Y%m%d"`.csv
 touch $OUTPUT
 
 remove="FALSE"
