@@ -1,0 +1,17 @@
+#!/bin/bash
+
+SH_PATH=$(dirname $0)
+LOG_PATH=$1
+
+today=`date '+%Y-%m-%d'`
+LOGS=`cat $LOG_PATH | grep $today`
+DIRS=""
+
+while read line
+do
+  DIRS=$DIRS`echo $line | cut -d , -f 2 | rev | cut -d "/" -f 2- | rev`"\n"
+done<< FILE
+$LOGS
+FILE
+
+echo -e $DIRS | sort | uniq
