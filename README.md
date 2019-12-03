@@ -17,20 +17,22 @@ $ export PATH=$PATH:$PWD
 ```
 
 # Usage
++ 以下の2つの記録方法から好きな方法を選択する．
+
 ## 本日更新があったディレクトリ一覧表示
 + 以下のコマンドを実行すると本日更新があったディレクトリをソートして一覧表示できる．
-  + `ACCESS_LOG_PATH` は，CFALによって収集しているアクセス履歴
+  + `<ACCESS_LOG_PATH>` は，CFALによって収集しているアクセス履歴
 
-`$ todays-dir ACCESS_LOG_PATH`
+`$ todays-dir <ACCESS_LOG_PATH>`
 
 + 適宜エディタ等で開いてワーキングディレクトリのみを抽出し，`data/wdYYYYMMDD.csv` に記録．
 
 ## カレントディレクトリを記録
 + 記録したいディレクトリで以下のコマンドを実行
-  + `WORK_NAME` は省略すると `None` になる
+  + `<WORK_NAME>` は省略すると `None` になる
   + 既に記録されている場合，上書きされる
 
-`$ pwd-mark WORK_NAME`
+`$ pwd-mark <WORK_NAME>`
 
 + 記録を取り消したいディレクトリで以下のコマンドを実行
 
