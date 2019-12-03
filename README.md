@@ -13,6 +13,7 @@
 $ git clone git@github.com:Ryota0312/MarkWD.git
 $ cd MarkWD
 $ export PATH=$PATH:$PWD
+# or echo "PATH=$PATH:$PWD" >> ~/.bashrc
 ```
 
 # Usage
