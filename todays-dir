@@ -14,4 +14,5 @@ done<< FILE
 $LOGS
 FILE
 
-echo -e $DIRS | sort | uniq
+# FIXME: 1行目に謎の改行が入るのを修正する
+echo -e $DIRS | sort | uniq | sed -e '1d' 
